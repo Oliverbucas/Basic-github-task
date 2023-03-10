@@ -1,0 +1,107 @@
+newman
+
+APICollection
+
+□ pet / {petId}
+└ Find pet by ID
+  GET https://petstore.swagger.io/v2/pet/54536799 [404 Not Found, 384B, 1066ms]
+
+└ Updates a pet in the store with form data
+  POST https://petstore.swagger.io/v2/pet/54536799 [404 Not Found, 384B, 219ms]
+
+└ Deletes a pet
+  DELETE https://petstore.swagger.io/v2/pet/54536799 [404 Not Found, 292B, 225ms]
+
+└ uploads an image
+  ┌
+  │ 'Form param `file`, file load error: missing file sour
+  │ ce'
+  └
+  POST https://petstore.swagger.io/v2/pet/54536799/uploadImage [500 Internal Server Error, 736B, 247ms]
+
+□ pet
+└ Add a new pet to the store
+  POST https://petstore.swagger.io/v2/pet [200 OK, 596B, 229ms]
+
+└ Update an existing pet
+  PUT https://petstore.swagger.io/v2/pet [200 OK, 593B, 225ms]
+
+└ Finds Pets by status
+  GET https://petstore.swagger.io/v2/pet/findByStatus?status=available&status=available [200 OK, 26.07kB, 413ms]
+
+└ Finds Pets by tags
+  GET https://petstore.swagger.io/v2/pet/findByTags?tags=pariatur laboris laborum &tags=do consequat nostrud quis [200 OK, 328B, 220ms]
+
+□ store / order / {orderId}
+└ Find purchase order by ID
+  GET https://petstore.swagger.io/v2/store/order/3 [200 OK, 434B, 222ms]
+
+└ Delete purchase order by ID
+  DELETE https://petstore.swagger.io/v2/store/order/15506629 [404 Not Found, 390B, 220ms]
+
+□ store / order
+└ Place an order for a pet
+  POST https://petstore.swagger.io/v2/store/order [200 OK, 469B, 222ms]
+
+□ store
+└ Returns pet inventories by status
+  GET https://petstore.swagger.io/v2/store/inventory [200 OK, 395B, 214ms]
+  √  Status code is 200
+  ┌
+  │ 6
+  └
+  1. confirm that number sold is 55
+  √  Status code name should have an OK string
+
+□ user / {username}
+└ Get user by user name
+  GET https://petstore.swagger.io/v2/user/aliquip ad [404 Not Found, 385B, 219ms]
+
+└ Updated user
+  PUT https://petstore.swagger.io/v2/user/aliquip ad [200 OK, 378B, 216ms]
+
+└ Delete user
+  DELETE https://petstore.swagger.io/v2/user/aliquip ad [404 Not Found, 292B, 219ms]
+
+□ user
+└ Create user
+  POST https://petstore.swagger.io/v2/user [200 OK, 378B, 223ms]
+
+└ Logs user into the system
+  GET https://petstore.swagger.io/v2/user/login?username=aliquip ad&password=aliquip ad [200 OK, 471B, 214ms]
+
+└ Logs out current logged in user session
+  GET https://petstore.swagger.io/v2/user/logout [200 OK, 370B, 212ms]
+
+└ Creates list of users with given input array
+  POST https://petstore.swagger.io/v2/user/createWithArray [200 OK, 370B, 221ms]
+
+└ Creates list of users with given input array
+  POST https://petstore.swagger.io/v2/user/createWithList [200 OK, 370B, 216ms]
+
+┌─────────────────────────┬─────────────────────┬─────────────────────┐
+│                         │            executed │              failed │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│              iterations │                   1 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│                requests │                  20 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│            test-scripts │                   1 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│      prerequest-scripts │                   0 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│              assertions │                   3 │                   1 │
+├─────────────────────────┴─────────────────────┴─────────────────────┤
+│ total run duration: 7.1s                                            │
+├─────────────────────────────────────────────────────────────────────┤
+│ total data received: 27.47kB (approx)                               │
+├─────────────────────────────────────────────────────────────────────┤
+│ average response time: 273ms [min: 212ms, max: 1066ms, s.d.: 186ms] │
+└─────────────────────────────────────────────────────────────────────┘
+
+  #  failure         detail                                             
+                                                                        
+ 1.  AssertionError  confirm that number sold is 55                     
+                     expected 6 to deeply equal 3                       
+                     at assertion:2 in test-script                      
+                     inside "store / Returns pet inventories by status" 
